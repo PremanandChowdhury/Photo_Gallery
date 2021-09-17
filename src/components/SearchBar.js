@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
 import '../index.css'
 
-const SearchBar = () => {
-  const [term, setTerm] = useState('Search term ....')
+const SearchBar = ({ onSubmit }) => {
+  const [term, setTerm] = useState('')
+
+  const onFormSubmit = (e) => {
+    e.preventDefault()
+    onSubmit(term)
+  }
 
   return (
     <div>
-      <form action='text'>
+      <form onSubmit={onFormSubmit}>
         <label htmlFor='search'>Search Images 🔍</label>
         <input
           type='text'

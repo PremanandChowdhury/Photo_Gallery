@@ -3,9 +3,12 @@ import SearchBar from './SearchBar'
 import '../index.css'
 
 const App = () => {
+  const onSearchSubmit = (term) => {
+    console.log(term)
+  }
   return (
     <div className='container'>
-      <SearchBar />
+      <SearchBar onSubmit={onSearchSubmit} />
     </div>
   )
 }
